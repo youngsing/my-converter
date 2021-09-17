@@ -1,8 +1,8 @@
 {
-  "name": "my-new-app",
-  "productName": "my-new-app",
+  "name": "MyConverter",
+  "productName": "MyConverter",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "A simple converter",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
@@ -11,10 +11,16 @@
     "publish": "electron-forge publish",
     "lint": "eslint --ext .ts ."
   },
-  "keywords": [],
+  "keywords": [
+    "ffmpeg",
+    "electron",
+    "electron-forge",
+    "audio",
+    "video"
+  ],
   "author": {
-    "name": "Chris Evans",
-    "email": "chris.muttley.evans@gmail.com"
+    "name": "youngsing",
+    "email": "vkmoment@gmail.com"
   },
   "license": "MIT",
   "config": {
@@ -24,7 +30,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "my_new_app"
+            "name": "MyConverter"
           }
         },
         {
@@ -53,7 +59,10 @@
                 {
                   "html": "./src/index.html",
                   "js": "./src/renderer.tsx",
-                  "name": "main_window"
+                  "name": "main_window",
+                  "preload": {
+                    "js": "./src/preload.ts"
+                  }
                 }
               ]
             }
@@ -70,6 +79,10 @@
     "@electron-forge/maker-zip": "6.0.0-beta.54",
     "@electron-forge/plugin-webpack": "6.0.0-beta.54",
     "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
+    "@types/fluent-ffmpeg": "^2.1.16",
+    "@types/moment-duration-format": "^2.2.2",
+    "@types/react-redux": "^7.1.16",
+    "@types/react-router-dom": "^5.1.7",
     "@types/styled-components": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.13.0",
     "@typescript-eslint/parser": "^4.13.0",
@@ -85,11 +98,20 @@
     "typescript": "^4.1.3"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "electron-squirrel-startup": "^1.0.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "materialize-css": "^1.0.0-rc.2",
+    "moment": "^2.29.1",
+    "moment-duration-format": "^2.3.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-dropzone": "^11.3.0",
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
     "styled-components": "^5.2.1"
   }
 }
